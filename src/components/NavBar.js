@@ -1,3 +1,5 @@
+import CartWidget from "./CartWidget"
+
 const NavBar = () => {
     return(
         <>
@@ -16,6 +18,7 @@ const NavBar = () => {
                 </div>
                 <div class="navbar-center">
                     <a class="btn btn-ghost normal-case text-xl">Alma Librerías</a>
+                    <a><CartWidget></CartWidget></a>
                 </div>
                 <div class="navbar-end">
                     <button class="btn btn-ghost btn-circle">
