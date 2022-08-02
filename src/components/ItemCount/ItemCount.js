@@ -11,7 +11,7 @@ function ItemCount({stock, initial}){
     }
 
     function quitarUno(){
-        if((cantidad < stock) && (cantidad > 0)){
+        if(cantidad > 0){
             setCantidad(cantidad - 1)
         } else{
             alert("Lo sentimos, no existe stock de números negativos")
