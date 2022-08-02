@@ -7,7 +7,7 @@ import Item from "../Item/Item";
 
 const ItemList = () => {
   const [libros, getLibros] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true) //Agregar la lógica de esto!!
 
   useEffect(() =>{
       getFetch
@@ -18,9 +18,11 @@ const ItemList = () => {
 
   return (
     <>
-      <Container fluid>
+      <Container fluid className="container">
         <Row className="justify-content-md-center">
-          {libros.map( (libro) =>{
+          {
+            loading ? <h2>Cargando...</h2>:
+            libros.map( (libro) =>{
             return(
               <Col>
                 <Item key={libro.id} titulo={libro.titulo} autor={libro.autor} precio={libro.precio} img={libro.img} stock={libro.stock} initial={libro.initial}/>

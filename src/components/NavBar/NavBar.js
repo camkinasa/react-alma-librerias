@@ -9,10 +9,10 @@ const NavBar = () => {
     return(
         <>
             <Navbar bg="light" expand="lg">
-            <Container fluid>
-                <CartWidget></CartWidget>
+            <Container fluid className="navBar">
+                <CartWidget/>
                 <Navbar.Brand href="#">Alma librerías</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll" />
+                <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
                     className="me-auto my-2 my-lg-0"
@@ -30,7 +30,7 @@ const NavBar = () => {
                     className="me-2"
                     aria-label="Search"
                     />
-                    <Button variant="outline-success">Buscar</Button>
+                    <Button variant="outline">Buscar</Button>
                 </Form>
                 </Navbar.Collapse>
             </Container>
