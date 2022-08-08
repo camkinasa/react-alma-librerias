@@ -45,6 +45,12 @@
   background-color: #ff6961;
 }
 
+#img{
+  max-width: 200px;
+  align-self: center;
+}
+
+
 
 /*Paleta de colores:
 color1: #840007

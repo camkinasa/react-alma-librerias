@@ -1,20 +1,28 @@
 import { useEffect, useState } from "react"
-import getFetch from "../../Libros/libros"
+import { useParams } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { getFetch, getLibroByCategory } from "../../Libros/libros";
 import Item from "../Item/Item";
 
 const ItemList = () => {
-  const [libros, getLibros] = useState([])
-  const [loading, setLoading] = useState(true) //Agregar la lógica de esto!!
+  const [libros, setLibros] = useState([])
+  const [loading, setLoading] = useState(true)
+  const { categoryId } = useParams()
 
   useEffect(() =>{
+    if(!categoryId){
       getFetch
-      .then((resp) => getLibros(resp))
+      .then((resp) => setLibros(resp))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false))
-  }, [])
+    } else{
+      getLibroByCategory(categoryId)
+      .then(items => setLibros(items))
+      .finally(() => setLoading(false))
+    }
+  }, [categoryId])
 
   return (
     <>
@@ -25,7 +33,7 @@ const ItemList = () => {
             libros.map( (libro) =>{
             return(
               <Col>
-                <Item key={libro.id} titulo={libro.titulo} autor={libro.autor} precio={libro.precio} img={libro.img} stock={libro.stock} initial={libro.initial}/>
+                <Item key={libro.id} {...libro}/>
               </Col>
             )
             })

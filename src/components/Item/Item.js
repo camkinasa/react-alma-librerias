@@ -1,18 +1,18 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import ItemCount from '../ItemCount/ItemCount';
-import libros from "../../Libros/libros"
+import { Link } from 'react-router-dom';
 
 const Item = (props) => {
   return (
     <Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src={props.img} />
+    <Card.Img id="img" variant="top" src={props.img} />
       <Card.Body>
         <Card.Title>Título: {props.titulo}</Card.Title>
         <Card.Text>Autor: {props.autor}</Card.Text>
         <Card.Text>Precio: ${props.precio}</Card.Text>
-        <Button variant="primary">+ info</Button>
-        <ItemCount stock={props.stock} initial={props.initial}/>
+        <Link to={`/item/${props.id}`}>
+          <Button variant="secondary">Ver sinopsis</Button>
+        </Link>
       </Card.Body>
   </Card>
   )

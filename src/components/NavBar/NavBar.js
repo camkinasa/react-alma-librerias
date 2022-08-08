@@ -4,6 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { NavLink, Link } from "react-router-dom";
 
 const NavBar = () => {
     return(
@@ -19,9 +21,20 @@ const NavBar = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#action1">Inicio</Nav.Link>
-                    <Nav.Link href="#action2">Libros</Nav.Link>
-                    <Nav.Link href="#action2">Contacto</Nav.Link>
+                    <Nav.Link>
+                        <NavLink to={"/"}>Inicio</NavLink>
+                    </Nav.Link>
+                    <NavDropdown title="Género" id="basic-nav-dropdown">
+                        <NavDropdown.Item>
+                            <Link to="category/autoayuda">Autoayuda</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <Link to="category/feminismo">Feminismo</Link>
+                        </NavDropdown.Item>
+                        <NavDropdown.Item>
+                            <Link to="category/thriller-medico">Thriller médico</Link>
+                        </NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
                 <Form className="d-flex">
                     <Form.Control

@@ -24,8 +24,8 @@ function ItemCount({stock, initial}){
             <p>
                 {cantidad}
             </p>
-            <button class="btn btn-success botonAñadir" onClick={añadirUno}>Añadir 1</button>
-            <button class="btn btn-secondary" onClick={quitarUno}>Quitar 1</button>
+            <button className="btn btn-success botonAñadir" onClick={añadirUno}>Añadir 1</button>
+            <button className="btn btn-secondary" onClick={quitarUno}>Quitar 1</button>
         </div>
     );
 }
