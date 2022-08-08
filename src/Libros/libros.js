@@ -81,7 +81,7 @@ export const getFetch = new Promise((res, rej) => {
 export const getBookById = (id) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(libros.find(libro => libro.id === id))
+        resolve(libros.find(libro => libro.id == id))
       }, 2000);
     })
 }

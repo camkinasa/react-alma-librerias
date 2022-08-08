@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getBookById } from '../../Libros/libros'
 import { useParams } from 'react-router-dom'
 import LibroDetail from '../LibroDetail/LibroDetail'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 const LibroDetailContainer = () => {
   const [libro, setLibro] = useState({})
@@ -24,7 +25,7 @@ const LibroDetailContainer = () => {
   return (
     <Container>
       <h1>Detalle del libro</h1>
-      {loading ? <h2>Cargando...</h2>:
+      {loading ? <div><h2>Cargando...</h2> <LoadingSpinner/></div>:
       <LibroDetail {...libro}/>}
     </Container>
   )

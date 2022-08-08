@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { getFetch, getLibroByCategory } from "../../Libros/libros";
 import Item from "../Item/Item";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const ItemList = () => {
   const [libros, setLibros] = useState([])
@@ -29,7 +30,7 @@ const ItemList = () => {
       <Container fluid className="container">
         <Row className="justify-content-md-center">
           {
-            loading ? <h2>Cargando...</h2>:
+            loading ? <div><h2>Cargando...</h2><LoadingSpinner/></div>:
             libros.map( (libro) =>{
             return(
               <Col>
