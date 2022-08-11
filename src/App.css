@@ -41,7 +41,7 @@
   }
 }
 
-.navBar{
+.navBarContainer{
   background-color: #ff6961;
 }
 
@@ -50,7 +50,25 @@
   align-self: center;
 }
 
+body{
+  background-color: #261dbe;
+  background-image:  linear-gradient(30deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(150deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(30deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(150deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(60deg, #ffdece77 25%, transparent 25.5%, transparent 75%, #ffdece77 75%, #ffdece77), linear-gradient(60deg, #ffdece77 25%, transparent 25.5%, transparent 75%, #ffdece77 75%, #ffdece77);
+  background-size: 46px 81px;
+  background-position: 0 0, 0 0, 23px 40px, 23px 40px, 0 0, 23px 40px;
+}
 
+a a{
+  text-decoration: none;
+  color: white;
+}
+
+.navBar.container-fluid a{
+  color: white;
+}
+
+.h-6.w-6{
+  color: white;
+}
 
 /*Paleta de colores:
 color1: #840007

@@ -10,10 +10,12 @@ import { NavLink, Link } from "react-router-dom";
 const NavBar = () => {
     return(
         <>
-            <Navbar bg="light" expand="lg">
-            <Container fluid className="navBar">
+            <Navbar className="navBarContainer">
+            <Container fluid>
                 <CartWidget/>
-                <Navbar.Brand href="#">Alma librerías</Navbar.Brand>
+                <Navbar.Brand href="#">
+                    <NavLink to={"/"}>Alma Librerías</NavLink>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -21,17 +23,17 @@ const NavBar = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link>
+{/*                     <Nav.Link>
                         <NavLink to={"/"}>Inicio</NavLink>
-                    </Nav.Link>
+                    </Nav.Link> */}
                     <NavDropdown title="Género" id="basic-nav-dropdown">
-                        <NavDropdown.Item>
+                        <NavDropdown.Item className="bg-dark">
                             <Link to="category/autoayuda">Autoayuda</Link>
                         </NavDropdown.Item>
-                        <NavDropdown.Item>
+                        <NavDropdown.Item className="bg-dark">
                             <Link to="category/feminismo">Feminismo</Link>
                         </NavDropdown.Item>
-                        <NavDropdown.Item>
+                        <NavDropdown.Item className="bg-dark">
                             <Link to="category/thriller-medico">Thriller médico</Link>
                         </NavDropdown.Item>
                     </NavDropdown>
@@ -43,7 +45,7 @@ const NavBar = () => {
                     className="me-2"
                     aria-label="Search"
                     />
-                    <Button variant="outline">Buscar</Button>
+                    <Button variant="light">Buscar</Button>
                 </Form>
                 </Navbar.Collapse>
             </Container>
