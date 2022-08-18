@@ -4,7 +4,7 @@ function ItemCount({stock, initial, añadirAlCarrito}){
     const [cantidad, setCantidad] = useState(initial)
     function sumarUno(){
         if((cantidad < stock) && (cantidad >= 0) ){
-            setCantidad(cantidad + 1)
+            cantidad = setCantidad(cantidad + 1)
         } else{
             alert("Lo sentimos, ese es el stock máximo")
         }
@@ -12,7 +12,7 @@ function ItemCount({stock, initial, añadirAlCarrito}){
 
     function quitarUno(){
         if(cantidad > 0){
-            setCantidad(cantidad - 1)
+            cantidad = setCantidad(cantidad - 1)
         } else{
             alert("Lo sentimos, no existe stock de números negativos")
         }
