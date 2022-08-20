@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () =>{
     const { cart, removeBook, clear, subtotal } = useContext(CartContext)
+    console.log(cart)
     return(    
         <div>
         <div>
@@ -17,9 +18,18 @@ const Cart = () =>{
             <Col m={2}>Cantidad</Col>
             <Col m={2}>Precio por unidad</Col>
             <Col m={2}>Precio total</Col>
+            <Col m={2}></Col>
+            <Col m={2}>
+              <Button
+                className="btn btn-danger"
+                onClick={() => clear()}
+              >
+                Vaciar carrito
+              </Button>
+            </Col>
           </Row>
           <Container>
-            {cart == [] ? (
+            {cart.length === 0 ? (
               <div>
                 <p>¡No hay libros en el carrito!</p>
                 <Button as={Link} to="/">
@@ -28,15 +38,13 @@ const Cart = () =>{
               </div>
             ) : (
               <>
-                {cart?.map((book) => (
+                {cart.map((book) => (
                   <Row key={book.id}>
-                    <Col m={3}>
-                      {book.titulo} por {book.cantidad}
-                    </Col>
-                    <Col m={2}>{book.cantidad}</Col>
+                    <Col m={2}>{book.titulo}</Col>
+                    <Col m={2}>{`${book.cantidad}`}</Col>
                     <Col m={2}>{`$ ${book.precio}`}</Col>
-                    <Col m={2}>{`$ ${book.cantidad * book.precio}`}</Col>
-                    <Col m={1}>
+                    <Col m={2}>${book.cantidad * book.precio}</Col>
+                    <Col m={2}>
                       <Button
                         className="btn btn-danger"
                         onClick={() => removeBook(book.id)}
@@ -44,30 +52,14 @@ const Cart = () =>{
                         Eliminar del carrito
                       </Button>
                     </Col>
+                    <Col m={2}>
+                    </Col>
                   </Row>
                 ))}
               </>
             )}
           </Container>
         </Container>
-        <hr />
-        {cart == "" ? (
-          <></>
-        ) : (
-          <div>
-          <div>Subtotal: ${subtotal}</div>
-          <div>
-            <Button as={Link} to="/">
-              Seguir comprando
-            </Button>
-            <div>
-              <Button className="btn btn-danger" onClick={clear}>
-                Vaciar carrito
-              </Button>
-            </div>
-          </div>
-        </div>
-        )}
       </div>
     );
 }

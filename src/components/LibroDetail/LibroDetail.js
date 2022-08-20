@@ -1,13 +1,18 @@
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from "react";
+import { CartContext } from '../../context/CartContext';
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
 const LibroDetail = (libro) => {
   const [enCarrito, setEncarrito] = useState(false)
+
+  const { addBook } = useContext(CartContext)
+
   
   const añadirAlCarrito = ()=>{
     setEncarrito(true);
+    addBook(libro)
   }
 
   return (

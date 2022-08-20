@@ -12,7 +12,9 @@ const NavBar = () => {
         <>
             <Navbar className="navBarContainer">
             <Container fluid>
-                <CartWidget/>
+                <Link to="/cart">
+                    <CartWidget/>
+                </Link>
                 <Navbar.Brand href="#">
                     <NavLink to={"/"}>Alma Librerías</NavLink>
                 </Navbar.Brand>
@@ -23,9 +25,6 @@ const NavBar = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-{/*                     <Nav.Link>
-                        <NavLink to={"/"}>Inicio</NavLink>
-                    </Nav.Link> */}
                     <NavDropdown title="Género" id="basic-nav-dropdown">
                         <NavDropdown.Item className="bg-dark">
                             <Link to="category/autoayuda">Autoayuda</Link>
