@@ -25,7 +25,7 @@ const NavBar = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <NavDropdown title="Género" id="basic-nav-dropdown">
+                    <NavDropdown title="Género" id="basic-nav-dropdown" className="bg-dark">
                         <NavDropdown.Item className="bg-dark">
                             <Link to="category/autoayuda">Autoayuda</Link>
                         </NavDropdown.Item>

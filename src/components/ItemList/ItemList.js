@@ -28,7 +28,7 @@ const ItemList = () => {
   return (
     <>
       <Container fluid className="container">
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center col-xs-12">
           {
             loading ? <div><h2>Cargando...</h2><LoadingSpinner/></div>:
             libros.map( (libro) =>{

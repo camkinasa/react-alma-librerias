@@ -1,6 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .App {
   text-align: center;
@@ -42,24 +39,30 @@
 }
 
 .navBarContainer{
-  background-color: #ff6961;
+/* background-color: #c5c6c8; */
+  background-color: #282c34;
+  background-image: radial-gradient(#f74579 0.2px, #c5c6c8,  0.2px);
+  background-size: 4px 4px;
+  color: white;
 }
 
 #img{
-  max-width: 200px;
+  height: 300px;
+  width: 200px;
   align-self: center;
 }
 
 body{
-  background-color: #261dbe;
-  background-image:  linear-gradient(30deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(150deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(30deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(150deg, #ffdece 12%, transparent 12.5%, transparent 87%, #ffdece 87.5%, #ffdece), linear-gradient(60deg, #ffdece77 25%, transparent 25.5%, transparent 75%, #ffdece77 75%, #ffdece77), linear-gradient(60deg, #ffdece77 25%, transparent 25.5%, transparent 75%, #ffdece77 75%, #ffdece77);
-  background-size: 46px 81px;
-  background-position: 0 0, 0 0, 23px 40px, 23px 40px, 0 0, 23px 40px;
+opacity: 1;
+background-image:  linear-gradient(135deg, #dcd9f8 25%, transparent 25%), linear-gradient(225deg, #dcd9f8 25%, transparent 25%), linear-gradient(45deg, #dcd9f8 25%, transparent 25%), linear-gradient(315deg, #dcd9f8 25%, #a2edce 25%);
+background-position:  40px 0, 40px 0, 0 0, 0 0;
+background-size: 80px 80px;
+background-repeat: repeat;
 }
 
 a a{
   text-decoration: none;
-  color: white;
+  color: white
 }
 
 .navBar.container-fluid a{
@@ -69,15 +72,3 @@ a a{
 .h-6.w-6{
   color: white;
 }
-
-/*Paleta de colores:
-color1: #840007
-color2: #a62520
-color3: #c94139
-color4: #ed5c53
-color5: #ff6961
-color6: #ff7c70
-color7: #ff9e8e
-color8: #ffbeae
-color9: #ffdece
-complementario: #61f7ff*/

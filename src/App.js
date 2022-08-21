@@ -7,6 +7,7 @@ import CategoriaPage from './pages/CategoriaPage'
 import ItemDetailPage from './pages/ItemDetailPage'
 import Cart from './components/Cart/Cart';
 import CartContextProvider from './context/CartContext';
+import Footer from "./components/Footer/Footer"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/item/:idLibro' element={<ItemDetailPage/>} />
           <Route path="/cart" element={<Cart/>} />
         </Routes>
+        <Footer></Footer>
     </CartContextProvider>
   );
 }
