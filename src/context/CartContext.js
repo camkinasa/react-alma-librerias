@@ -5,33 +5,39 @@ export const CartContext = createContext();
 export default function CartContextProvider({ children }){
   const [cart, setCart] = useState([]);
 
-  const isInCart = (id) => {
-    const bookInCart = cart.find((book) => book.id == id)
-    if(bookInCart){
-      return true
-    } else{
-      return false
-    }
-  }
+  const addBookToCart = (book) => {
+    const listaActualizada = cart.find(
+        (bookEnCarrito) => bookEnCarrito.id === book.id
+    )
+        ? cart.map((bookEnCarrito) => {
+              if (bookEnCarrito.id === book.id) {
+                  return {
+                      ...bookEnCarrito,
+                      quantity: bookEnCarrito.quantity + book.quantity,
+                  };
+              }
+              return bookEnCarrito;
+          })
+        : [...cart, book];
+    setCart(listaActualizada);
+    console.log(">> elementos del carrito actualmente: ", listaActualizada);
+};
 
-  const addBook = (book) =>{
-    if(isInCart(book.id)){
-        const newCart = cart.map((bookInCart) => {
-          if(bookInCart.id == book.id){
-            const copyBook = {...bookInCart}
-            copyBook.cantidad += 1
-            return copyBook
-          }
-        })
-        setCart(newCart)
-      } 
-      else{
-      setCart([...cart, {...book, cantidad: 1}])
-      }
-    }
-
-  const removeBook = (id) =>{
-    setCart(cart.filter((book) => book.id !== id)) // me crea un nuevo array con todos los libros que no poseen ese id
+  const removeBook = (book) =>{
+    const listaActualizada = cart.find(            
+      (bookEnCarrito) => bookEnCarrito.id === book.id
+    )
+      ? cart.map((bookEnCarrito) => {
+        if ((bookEnCarrito.id === book.id) && (bookEnCarrito.quantity > 1)) {
+            return {
+                ...bookEnCarrito,
+                quantity: bookEnCarrito.quantity - 1,
+            };
+        } return bookEnCarrito;
+      })
+      : cart.filter((bookEnCarrito) => (bookEnCarrito.id !== book.id))
+  setCart(listaActualizada);
+  console.log(">> elementos del carrito actualmente: ", listaActualizada);
   }
 
   const clear = () =>  {
@@ -39,7 +45,7 @@ export default function CartContextProvider({ children }){
   }
 
   return (
-    <CartContext.Provider value={{ cart, addBook, removeBook, clear}}>
+    <CartContext.Provider value={{ cart, addBookToCart, removeBook, clear}}>
       {children}
     </CartContext.Provider>
   )

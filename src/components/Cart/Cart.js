@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Cart = () =>{
-    const { cart, removeBook, clear, subtotal } = useContext(CartContext)
+    const { cart, removeBook, clear } = useContext(CartContext)
     console.log(cart)
     return(    
         <div>
@@ -41,13 +41,13 @@ const Cart = () =>{
                 {cart.map((book) => (
                   <Row key={book.id}>
                     <Col m={2}>{book.titulo}</Col>
-                    <Col m={2}>{`${book.cantidad}`}</Col>
+                    <Col m={2}>{`${book.quantity}`}</Col>
                     <Col m={2}>{`$ ${book.precio}`}</Col>
-                    <Col m={2}>${book.cantidad * book.precio}</Col>
+                    <Col m={2}>${book.quantity * book.precio}</Col>
                     <Col m={2}>
                       <Button
                         className="btn btn-danger"
-                        onClick={() => removeBook(book.id)}
+                        onClick={() => removeBook(book)}
                       >
                         Eliminar del carrito
                       </Button>

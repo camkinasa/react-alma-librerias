@@ -1,51 +1,36 @@
 import { useState } from "react";
+import { Button } from "react-bootstrap"
 
-function ItemCount({stock, initial, añadirAlCarrito}){
+
+function ItemCount({stock, initial, onAddItemsToCart}){
     const [cantidad, setCantidad] = useState(initial)
-    function sumarUno(){
-        if((cantidad < stock) && (cantidad >= 0) ){
-            setCantidad(cantidad + 1)
-        } else{
-            alert("Lo sentimos, ese es el stock máximo")
+
+    const onAdd = () => {
+        console.log(`${cantidad} agregados al carrito!`);
+        onAddItemsToCart(cantidad);
+    }
+    const onAddSelectedItems = () => {
+        if (cantidad < stock) {
+            setCantidad(cantidad + 1);
         }
     }
-
-    function quitarUno(){
-        if(cantidad > 0){
-            setCantidad(cantidad - 1)
-        } else{
-            alert("Lo sentimos, no existe stock de números negativos")
-        }
-
-    }
-
-    function onAddToCart(){
-        if(cantidad >= -1){ /* Si pongo 0 tengo que hacer click dos veces para que funcione, por eso puse -1 */
-            añadirAlCarrito()
+    const onSubSelectedItems = () => {
+        if (cantidad > 1) {
+            setCantidad(cantidad - 1);
         }
     }
 
     return(
+        <>        
         <div>
-            <p>
+            <div>
+                <Button onClick={onSubSelectedItems}>-</Button>
                 {cantidad}
-            </p>
-            <button 
-            className="btn btn-success botonAñadir" 
-            onClick={()=>{
-            sumarUno();
-            onAddToCart();
-            }}
-            >
-                Añadir 1
-            </button>
-            <button 
-            className="btn btn-secondary" 
-            onClick={quitarUno}
-            >
-                Quitar 1
-            </button>
+                <Button onClick={onAddSelectedItems}>+</Button>
+            </div>
+            <Button onClick={onAdd} >Añadir al carrito</Button>
         </div>
+        </>
     );
 }
 

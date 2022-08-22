@@ -1,19 +1,25 @@
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
-import { CartContext } from '../../context/CartContext';
-import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 const LibroDetail = (libro) => {
-  const [enCarrito, setEncarrito] = useState(false)
 
-  const { addBook } = useContext(CartContext)
+  const {addBookToCart} = useContext(CartContext)
 
-  
-  const añadirAlCarrito = ()=>{
-    setEncarrito(true);
-    addBook(libro)
-  }
+  const onAdd = (quantityToAdd) => {
+
+    addBookToCart( { 
+        ...libro,
+        quantity: quantityToAdd
+     } );
+
+    console.log(
+        ">> Evento recibido del ItemCount! - Cantidad agregada: ",
+        quantityToAdd
+    );
+};
 
   return (
     <Card style={{ width: '18rem' }}>
@@ -26,7 +32,6 @@ const LibroDetail = (libro) => {
         <Card.Text>Género: {libro.genero}</Card.Text>
         <Card.Text>Sinopsis: {libro.sinopsis}</Card.Text>
         <Card.Text>Stock: {libro.stock}</Card.Text>
-        {enCarrito ? (
           <div>
               <Link to="/cart">
                 <button className="btn btn-secondary">Ver en carrito</button>
@@ -35,14 +40,11 @@ const LibroDetail = (libro) => {
                 <button className="btn btn-secondary">Seguir comprando</button>
               </Link>
           </div>
-        ) : (
           <ItemCount 
           stock={libro.stock} 
           initial={libro.initial}
-          añadirAlCarrito={añadirAlCarrito}
+          onAddItemsToCart={onAdd}
           />
-        )}
-
       </Card.Body>
     </Card>
   )
