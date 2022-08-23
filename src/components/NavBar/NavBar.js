@@ -13,7 +13,7 @@ const NavBar = () => {
     const { cart } = useContext(CartContext)
     return(
         <>
-            <Navbar className="navBarContainer">
+            <Navbar className="navBarContainer mb-5">
             <Container fluid>
                 {cart.length ? 
                     <div>

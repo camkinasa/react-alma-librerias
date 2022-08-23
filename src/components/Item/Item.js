@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Item = (props) => {
   return (
-    <Card style={{ width: '18rem' }} className="mt-5 mb-5 bg-light">
-    <Card.Img id="img" variant="top" src={props.img} />
+    <Card style={{ width: '18rem', height: '36rem'}} className="mt-5 mb-5 bg-light" border="success">
+    <Card.Img id="img" variant="top" src={props.img} className="mt-3"/>
       <Card.Body>
-        <Card.Title>Título: {props.titulo}</Card.Title>
+        <Card.Title>{props.titulo}</Card.Title>
         <Card.Text>Autor: {props.autor}</Card.Text>
         <Card.Text>Precio: ${props.precio}</Card.Text>
         <Link to={`/item/${props.id}`}>

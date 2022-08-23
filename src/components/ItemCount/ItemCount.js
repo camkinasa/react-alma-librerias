@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap"
 
-
 function ItemCount({stock, initial, onAddItemsToCart}){
     const [cantidad, setCantidad] = useState(initial)
 
     const onAdd = () => {
-        console.log(`${cantidad} agregados al carrito!`);
+        if(cantidad > 0){
         onAddItemsToCart(cantidad);
+        }
     }
     const onAddSelectedItems = () => {
         if (cantidad < stock) {

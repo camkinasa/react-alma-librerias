@@ -76,6 +76,10 @@ a a{
   color: white
 }
 
+.spinner{
+  height: 100vh;
+}
+
 .navBar.container-fluid a{
   color: white;
 }
@@ -121,6 +125,32 @@ a a{
 .item-count button:hover {
   color: white;
 }
+
+
+.libroDetail button, .libroDetail button:focus, .libroDetail button:active {
+  background-color: #dcd9f8 ;
+  border: 1px solid #766ae0 ;
+  color: #4a3bcf;
+  outline: #4a3bcf;
+}
+
+.libroDetail button:hover {
+  background-color: #4a3bcf;
+  border: 1px solid black;
+  color: #ffb2a9;
+  font-weight: bold;
+}
+
+
+.libroDetail button {
+  background-color: #a2edce
+}
+
+.libroDetail button:hover {
+  color: white;
+}
+
+
 
 #footer{
 /*   position: fixed; */

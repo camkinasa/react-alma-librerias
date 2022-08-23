@@ -1,6 +1,6 @@
 const footer = () => {
   return (
-    <nav className="navbar navBarContainer" id="footer">
+    <nav className="navbar navBarContainer mt-5" id="footer">
         <div class="container-fluid">
             <p><strong>© Alma librerías 2022</strong></p>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-facebook" viewBox="0 0 16 16">

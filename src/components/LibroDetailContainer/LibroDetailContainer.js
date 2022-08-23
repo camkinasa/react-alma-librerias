@@ -24,7 +24,7 @@ const LibroDetailContainer = () => {
 
   return (
     <Container>
-      <h1>Detalle del libro</h1>
+      <h2 className='mt-5 mb-3'>Detalle del libro</h2>
       {loading ? <div><h2>Cargando...</h2> <LoadingSpinner/></div>:
       <LibroDetail {...libro}/>}
     </Container>

@@ -25,19 +25,17 @@ export default function CartContextProvider({ children }){
 
   const removeBook = (book) =>{
     const listaActualizada = cart.find(            
-      (bookEnCarrito) => bookEnCarrito.id === book.id
+      (bookEnCarrito) => ((bookEnCarrito.id === book.id) && (bookEnCarrito.quantity > 1))
     )
       ? cart.map((bookEnCarrito) => {
-        if ((bookEnCarrito.id === book.id) && (bookEnCarrito.quantity > 1)) {
             return {
                 ...bookEnCarrito,
                 quantity: bookEnCarrito.quantity - 1,
             };
-        } return bookEnCarrito;
-      })
+        })
       : cart.filter((bookEnCarrito) => (bookEnCarrito.id !== book.id))
-  setCart(listaActualizada);
-  console.log(">> elementos del carrito actualmente: ", listaActualizada);
+    setCart(listaActualizada);
+    console.log(">> elementos del carrito actualmente: ", listaActualizada);
   }
 
   const clear = () =>  {
