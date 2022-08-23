@@ -22,13 +22,13 @@ function ItemCount({stock, initial, onAddItemsToCart}){
 
     return(
         <>        
-        <div>
+        <div className="item-count">
             <div>
-                <Button onClick={onSubSelectedItems}>-</Button>
+                <button onClick={onSubSelectedItems}>-</button>
                 {cantidad}
-                <Button onClick={onAddSelectedItems}>+</Button>
+                <button onClick={onAddSelectedItems}>+</button>
             </div>
-            <Button onClick={onAdd} >Añadir al carrito</Button>
+            <Button onClick={onAdd} className="btn btn-success">Añadir al carrito</Button>
         </div>
         </>
     );

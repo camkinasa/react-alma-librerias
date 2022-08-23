@@ -19,7 +19,7 @@ function App() {
           <Route path='/item/:idLibro' element={<ItemDetailPage/>} />
           <Route path="/cart" element={<Cart/>} />
         </Routes>
-        <Footer></Footer>
+        <Footer/>
     </CartContextProvider>
   );
 }

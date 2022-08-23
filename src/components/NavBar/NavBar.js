@@ -6,18 +6,29 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const NavBar = () => {
+    const { cart } = useContext(CartContext)
     return(
         <>
             <Navbar className="navBarContainer">
             <Container fluid>
-                <Link to="/cart">
-                    <CartWidget/>
-                </Link>
-                <Navbar.Brand href="#">
-                    <NavLink to={"/"}>Alma Librerías</NavLink>
-                </Navbar.Brand>
+                {cart.length ? 
+                    <div>
+                        <Link to="/cart">
+                            <CartWidget/>
+                        </Link>
+                        <Navbar.Brand href="#">
+                            <NavLink to={"/"}>Alma Librerías</NavLink>
+                        </Navbar.Brand>
+                    </div>
+                    :                 
+                    <Navbar.Brand href="#">
+                        <NavLink to={"/"}>Alma Librerías</NavLink>
+                    </Navbar.Brand>
+                }   
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
