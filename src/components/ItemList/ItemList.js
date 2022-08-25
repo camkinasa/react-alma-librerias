@@ -13,7 +13,7 @@ const ItemList = () => {
   const { categoryId } = useParams()
 
   useEffect(() =>{
-    if(!categoryId){
+/*     if(!categoryId){
       getFetch
       .then((resp) => setLibros(resp))
       .catch((err) => console.log(err))
@@ -22,7 +22,14 @@ const ItemList = () => {
       getLibroByCategory(categoryId)
       .then(items => setLibros(items))
       .finally(() => setLoading(false))
-    }
+    } */
+    async function getD () {
+      const librosDesdeFirebase = await getFetch();
+      setLibros(librosDesdeFirebase);
+      setLoading(false)
+  }
+
+  getD ();
   }, [categoryId])
 
   return (

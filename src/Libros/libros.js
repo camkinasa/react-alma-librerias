@@ -1,3 +1,8 @@
+import { DB } from "./APIfirebase";
+import { collection, getDocs } from 'firebase/firestore'
+
+const TESTING_DELAY = 500;
+
 const libros = [
     {
         id: 1,
@@ -133,7 +138,7 @@ const libros = [
     }
 ]
 
-export const getFetch = new Promise((res, rej) => {
+/* export const getFetch = new Promise((res, rej) => {
     let condicion = true
     if(condicion){
         setTimeout(() => {
@@ -142,7 +147,25 @@ export const getFetch = new Promise((res, rej) => {
     } else{
         console.log("No hay datos")
     }
-})
+}) */
+
+export async function getFetch(){
+    let response = [];
+    const colRef = collection(DB, "libros")
+    try{
+        const snapshot = await getDocs(colRef)
+        response = snapshot.docs.map((ravDoc) => {
+            return{
+              id: ravDoc.id,
+              ...ravDoc.data()}
+          })
+    } catch (err){
+        console.log("error al cargar los libros")
+    }
+    return response
+}
+//Snapshot --> retorna una promesa. Cambiar por async/await
+
 
 export const getBookById = (id) => {
     return new Promise((resolve) => {
