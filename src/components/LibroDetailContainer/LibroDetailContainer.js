@@ -6,7 +6,7 @@ import LibroDetail from '../LibroDetail/LibroDetail'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 const LibroDetailContainer = () => {
-  const [libro, setLibro] = useState([])
+  const [libro, setLibro] = useState({})
   const [loading, setLoading] = useState(true)
   const { idLibro } = useParams();
 /*   parseInt(idLibro) */

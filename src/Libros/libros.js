@@ -185,7 +185,7 @@ export async function getLibroByCategory(categoryId){
 
 export async function getBookById(idLibro){
     const colRef = doc(DB, 'libros', idLibro);
-    getDoc(colRef).then(snapshot =>{
+    const response = getDoc(colRef).then(snapshot =>{
         if (snapshot.exists()) {
             console.log({id: snapshot.id, ...snapshot.data()});
             return{
@@ -195,4 +195,5 @@ export async function getBookById(idLibro){
         }
         console.log(snapshot)
     })
+    return response
 }
