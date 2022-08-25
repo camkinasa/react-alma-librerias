@@ -1,5 +1,5 @@
 import { DB } from "./APIfirebase";
-import { collection, getDocs, query, where } from 'firebase/firestore'
+import { collection, getDocs, query, where, doc, getDoc } from 'firebase/firestore'
 
 const TESTING_DELAY = 500;
 
@@ -184,19 +184,15 @@ export async function getLibroByCategory(categoryId){
 }
 
 export async function getBookById(idLibro){
-    let response = []
-    const colRef = collection(DB, 'libros');
-    try {
-      const idRef = query(colRef, where('id', '==', idLibro))
-      const snapshot = await getDocs(idRef);
-      response = snapshot.docs.map((ravDoc) => {
+    const colRef = doc(DB, 'libros', idLibro);
+    getDoc(colRef).then(snapshot =>{
+        if (snapshot.exists()) {
+            console.log({id: snapshot.id, ...snapshot.data()});
             return{
-              id: ravDoc.id,
-              ...ravDoc.data()
+                id: snapshot.id,
+                ...snapshot.data()
             }
-        })
-    }catch(error) {
-        console.log(error)
-    }
-    return response
+        }
+        console.log(snapshot)
+    })
 }
