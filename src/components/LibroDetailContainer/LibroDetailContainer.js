@@ -9,17 +9,15 @@ const LibroDetailContainer = () => {
   const [libro, setLibro] = useState({})
   const [loading, setLoading] = useState(true)
   const {idLibro} = useParams();
-  parseInt(idLibro)
+/*   parseInt(idLibro) */
 
   useEffect(() => {        
-    getBookById(idLibro)
-    .then(libro => {
-        setLibro(libro)
-    })
-    .catch(error => {
-        console.log(error)
-    })
-    .finally(() => setLoading(false))
+    async function getBookByIdDesdeFirebase(idLibro){
+      const bookByIdDesdeFirebase = await getBookById(idLibro)
+      setLibro(bookByIdDesdeFirebase)
+      setLoading(false)
+    }
+    getBookByIdDesdeFirebase(idLibro)
   }, [idLibro])
 
   return (

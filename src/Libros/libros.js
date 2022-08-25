@@ -1,5 +1,5 @@
 import { DB } from "./APIfirebase";
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 
 const TESTING_DELAY = 500;
 
@@ -101,7 +101,7 @@ const libros = [
         precio: 10000,
         stock: 32,
         initial: 0,
-        sinopsis: "Facilita información actualizada relativa a las pruebas moleculares y genéticas, los mecanismos de enfermedad, la medicina personalizada y su repercusión en el tratamiento de las enfermedades, y la función del microbioma y el metaboloma en las enfermedades no transmisibles, entre otras cuestiones"
+        sinopsis: "Facilita información actualizada relativa a las pruebas moleculares y genéticas, los mecanismos de enfermedad, la medicina personalizada y su repercusión en el tratamiento de las enfermedades, y la función del microbioma y el metaboloma en las enfermedades no transmisibles, entre otras cuestiones."
     },
     {
         id: 10,
@@ -112,7 +112,7 @@ const libros = [
         precio: 12000,
         stock: 12,
         initial: 0,
-        sinopsis: "Texto de referencia en el área de Fisiología, considerada una de las biblias en la disciplina"
+        sinopsis: "Texto de referencia en el área de Fisiología, considerada una de las biblias en la disciplina."
     },
     {
         id: 11,
@@ -129,7 +129,7 @@ const libros = [
         id: 12,
         titulo: "Pieles reales",
         autor: "Dadatina",
-        genero: "",
+        genero: "Salud y belleza",
         img: "../Portadas/pieles-reales.jpg",
         precio: 3500,
         stock: 10,
@@ -164,21 +164,39 @@ export async function getFetch(){
     }
     return response
 }
-//Snapshot --> retorna una promesa. Cambiar por async/await
 
-
-export const getBookById = (id) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(libros.find(libro => libro.id == id))
-      }, 2000);
-    })
+export async function getLibroByCategory(categoryId){
+    let response = []
+    const colRef = collection(DB, "category")
+    try{
+        const colFilterRef = query(colRef, where('genero', '==', categoryId))
+        const snapshot = await getDocs(colFilterRef)
+        response = snapshot.docs.map((ravDoc) => {
+            return{
+              id: ravDoc.id,
+              ...ravDoc.data()
+            }
+        })
+    } catch (err){
+        console.log("error al cargar los libros")
+    }
+    return response
 }
 
-export const getLibroByCategory = (genero) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(libros.filter(libro => libro.genero === genero))
-        }, 2000)
-    })
+export async function getBookById(idLibro){
+    let response = []
+    const colRef = collection(DB, 'libros');
+    try {
+      const idRef = query(colRef, where('id', '==', idLibro))
+      const snapshot = await getDocs(idRef);
+      response = snapshot.docs.map((ravDoc) => {
+            return{
+              id: ravDoc.id,
+              ...ravDoc.data()
+            }
+        })
+    }catch(error) {
+        console.log(error)
+    }
+    return response
 }

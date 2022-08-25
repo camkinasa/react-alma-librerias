@@ -23,13 +23,22 @@ const ItemList = () => {
       .then(items => setLibros(items))
       .finally(() => setLoading(false))
     } */
-    async function getD () {
-      const librosDesdeFirebase = await getFetch();
-      setLibros(librosDesdeFirebase);
-      setLoading(false)
-  }
+    if(!categoryId){
+      async function getLibrosDesdeFirebase () {
+        const librosDesdeFirebase = await getFetch();
+        setLibros(librosDesdeFirebase);
+        setLoading(false)
+      } 
+      getLibrosDesdeFirebase();
+    } else{
+      async function getLibroByCategoryDesdeFirebase(categoryId){
+        const librosByCategoryDesdeFirebase = await getLibroByCategory(categoryId);
+        setLibros(librosByCategoryDesdeFirebase)
+        setLoading(false)
+      }
+      getLibroByCategoryDesdeFirebase(categoryId)
+    }
 
-  getD ();
   }, [categoryId])
 
   return (
