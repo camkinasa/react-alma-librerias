@@ -9,6 +9,7 @@ export default function CartContextProvider({ children }){
     return num1 * num2
   }
 
+
   const sumarTotal = (cart) => {
     const valores = []
     cart.forEach((libro) => {
@@ -19,6 +20,19 @@ export default function CartContextProvider({ children }){
       return valorAnterior + valorActual
     }, 0)
     return total
+  }
+
+  const cantidadTotalEnCarrito = (cart) => {
+    const valores = []
+    cart.forEach((libro) => {
+      const cantidad = libro.quantity
+      valores.push(cantidad)
+    })
+    const cantidadTotal = valores.reduce((valorAnterior, valorActual) =>{
+      return valorAnterior + valorActual
+    }, 0)
+    return cantidadTotal
+
   }
 
   const addBookToCart = (book) => {
@@ -58,7 +72,7 @@ export default function CartContextProvider({ children }){
   }
 
   return (
-    <CartContext.Provider value={{ cart, addBookToCart, removeBook, clear, sumarTotal}}>
+    <CartContext.Provider value={{ cart, addBookToCart, removeBook, clear, sumarTotal, cantidadTotalEnCarrito}}>
       {children}
     </CartContext.Provider>
   )
