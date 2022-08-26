@@ -35,12 +35,12 @@ export default function CartContextProvider({ children }){
               return bookEnCarrito;
           })
         : [...cart, book];
-    setCart(listaActualizada);
-    console.log(">> elementos del carrito actualmente: ", listaActualizada);
+    setCart(listaActualizada);;
 };
 
   const removeBook = (book) =>{
-    const listaActualizada = cart.find(            
+    // Eliminar de a un item, no me estaría saliendo aún
+/*     const listaActualizada = cart.find(            
       (bookEnCarrito) => ((bookEnCarrito.id === book.id) && (bookEnCarrito.quantity > 1))
     )
       ? cart.map((bookEnCarrito) => {
@@ -50,9 +50,11 @@ export default function CartContextProvider({ children }){
             };
         })
       : cart.filter((bookEnCarrito) => (bookEnCarrito.id !== book.id))
-    setCart(listaActualizada);
-    console.log(">> elementos del carrito actualmente: ", listaActualizada);
-  }
+    setCart(listaActualizada); */
+      const newCart = cart.filter((bookEnCarrito) => (bookEnCarrito.id !== book.id))
+      setCart(newCart)
+      }
+
 
   const clear = () =>  {
     setCart([])
