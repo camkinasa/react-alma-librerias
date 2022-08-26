@@ -39,21 +39,18 @@ export default function CartContextProvider({ children }){
 };
 
   const removeBook = (book) =>{
-    // Eliminar de a un item, no me estaría saliendo aún
-/*     const listaActualizada = cart.find(            
-      (bookEnCarrito) => ((bookEnCarrito.id === book.id) && (bookEnCarrito.quantity > 1))
-    )
-      ? cart.map((bookEnCarrito) => {
-            return {
-                ...bookEnCarrito,
-                quantity: bookEnCarrito.quantity - 1,
-            };
-        })
-      : cart.filter((bookEnCarrito) => (bookEnCarrito.id !== book.id))
-    setCart(listaActualizada); */
+    const indice = cart.indexOf(book)
+    if(book.quantity > 1){
+      book.quantity--
+      const newBook = {...book}
+      const newCart = [...cart]
+      newCart[indice] = newBook
+      setCart(newCart)
+    } else{
       const newCart = cart.filter((bookEnCarrito) => (bookEnCarrito.id !== book.id))
       setCart(newCart)
-      }
+    }
+  }
 
 
   const clear = () =>  {
