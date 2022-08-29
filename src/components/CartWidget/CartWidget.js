@@ -14,4 +14,3 @@ const CartWidget = () => {
     )
   }
 export default CartWidget
-/* Ver si puedo agregar ahora lo del número en el widget del carrito */
