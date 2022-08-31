@@ -1,0 +1,26 @@
+.cantidadEnCarrito{
+    text-decoration: none;
+}
+
+.nav-link{
+    color: white
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+    color: white;
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: white;
+}
+
+.dropdown-menu{
+    --bs-dropdown-bg: #212529
+}
+
+.navBarContainer{
+    background-color: #282c34;
+    background-image: radial-gradient(#f74579 0.2px, #c5c6c8,  0.2px);
+    background-size: 4px 4px;
+    color: white;
+}

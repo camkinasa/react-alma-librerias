@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap"
+import "./ItemCount.css"
 
 function ItemCount({stock, initial, onAddItemsToCart}){
     const [cantidad, setCantidad] = useState(initial)

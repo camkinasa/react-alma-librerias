@@ -1,0 +1,17 @@
+#footer{
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+.redesFooter{
+    color: white;
+    text-decoration: none;
+}
+
+.footerContainer{
+    background-color: #282c34;
+    background-image: radial-gradient(#f74579 0.2px, #c5c6c8,  0.2px);
+    background-size: 4px 4px;
+    color: white;
+}

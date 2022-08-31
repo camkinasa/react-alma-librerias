@@ -38,14 +38,6 @@
   }
 }
 
-.navBarContainer{
-/* background-color: #c5c6c8; */
-  background-color: #282c34;
-  background-image: radial-gradient(#f74579 0.2px, #c5c6c8,  0.2px);
-  background-size: 4px 4px;
-  color: white;
-}
-
 #img{
   height: 300px;
   width: 200px;
@@ -58,17 +50,6 @@ background-image:  linear-gradient(135deg, #dcd9f8 25%, transparent 25%), linear
 background-position:  40px 0, 40px 0, 0 0, 0 0;
 background-size: 80px 80px;
 background-repeat: repeat;
-}
-
-#cart{
-  height: 100vh;
-}
-
-span{
-  text-decoration: none;
-  color: white;
-  margin-left: 3px;
-  margin-right: 7px;
 }
 
 a a{
@@ -85,46 +66,6 @@ a a{
 }
 
 
-.item-count {
-  display: flex;
-  justify-content: space-between;
-  max-width: 400px;
-  gap: 5px
-}
-
-.item-count > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 200px;
-  border: 1px solid #f0f0f0;
-  background-color: #a2edce;
-  font-weight: bold;
-  color: #4a3bcf;
-}
-
-.item-count button, .item-count button:focus, .item-count button:active {
-  background-color: #dcd9f8 ;
-  border: 1px solid #766ae0 ;
-  color: #4a3bcf;
-  outline: #4a3bcf;
-}
-
-.item-count button:hover {
-  background-color: #4a3bcf;
-  border: 1px solid black;
-  color: #ffb2a9;
-  font-weight: bold;
-}
-
-
-.item-count > button {
-  background-color: #a2edce
-}
-
-.item-count button:hover {
-  color: white;
-}
 
 
 .libroDetail button, .libroDetail button:focus, .libroDetail button:active {
@@ -150,14 +91,6 @@ a a{
   color: white;
 }
 
-
-
-#footer{
-/*   position: fixed; */
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
 
 .h-6.w-6{
   color: white;

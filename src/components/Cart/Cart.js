@@ -5,6 +5,7 @@ import { DB } from "../../Libros/APIfirebase";
 import { Col, Container, Row } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Cart.css";
 
 const Cart = () =>{
     const compra = useContext(CartContext)
@@ -49,7 +50,7 @@ const Cart = () =>{
 
     return(    
         <Container className="bg-light opacity-75" id="cart">
-          <h2>Carrito</h2>
+          <h2 className="carritoTitle">Carrito</h2>
           <Row className="mb-2">
             <Col m={2}><strong>Título</strong></Col>
             <Col m={2}><strong>Cantidad</strong></Col>

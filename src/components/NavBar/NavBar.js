@@ -8,6 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import "./NavBar.css"
 
 const NavBar = () => {
     const { cart } = useContext(CartContext)
@@ -17,7 +18,7 @@ const NavBar = () => {
             <Container fluid>
                 {cart.length ? 
                     <div>
-                        <Link to="/cart">
+                        <Link to="/cart" className="cantidadEnCarrito">
                             <CartWidget/>
                         </Link>
                         <Navbar.Brand href="#">
