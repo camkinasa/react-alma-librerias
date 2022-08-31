@@ -3,7 +3,7 @@ import { collection, getDocs, query, where, doc, getDoc } from 'firebase/firesto
 
 const TESTING_DELAY = 500;
 
-const libros = [
+/* const libros = [
     {
         id: 1,
         titulo: "Coma",
@@ -136,7 +136,7 @@ const libros = [
         initial: 0,
         sinopsis: "Dadatina, una de las creadoras de contenido con más éxito en las redes sociales, nos presenta una guía básica de skincare, con toda la información necesaria para que conozcas más tu piel y que aprendas a cuidarla de la mejor manera posible. Acá está la respuesta a todas las dudas que te surgen cuando querés empezar o modificar tu rutina: vas a encontrar tips, cuestionarios, mitos y verdades, preguntas frecuentes y recomendaciones de profesionales. #PielesReales es el libro que todos los interesados en la piel y su cuidado están esperando."
     }
-]
+] */
 
 /* export const getFetch = new Promise((res, rej) => {
     let condicion = true
@@ -167,7 +167,7 @@ export async function getFetch(){
 
 export async function getLibroByCategory(categoryId){
     let response = []
-    const colRef = collection(DB, "category")
+    const colRef = collection(DB, "libros")
     try{
         const colFilterRef = query(colRef, where('genero', '==', categoryId))
         const snapshot = await getDocs(colFilterRef)
@@ -181,6 +181,7 @@ export async function getLibroByCategory(categoryId){
         console.log("error al cargar los libros")
     }
     return response
+
 }
 
 export async function getBookById(idLibro){
