@@ -6,30 +6,20 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink, Link } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 import "./NavBar.css"
+import UserWidget from "../UserWidget/UserWidget";
 
 const NavBar = () => {
-    const { cart } = useContext(CartContext)
     return(
         <>
             <Navbar className="navBarContainer mb-5">
             <Container fluid>
-                {cart.length ? 
-                    <div>
-                        <Link to="/cart" className="cantidadEnCarrito">
-                            <CartWidget/>
-                        </Link>
-                        <Navbar.Brand href="#">
-                            <NavLink to={"/"}>Alma Librerías</NavLink>
-                        </Navbar.Brand>
-                    </div>
-                    :                 
-                    <Navbar.Brand href="#">
-                        <NavLink to={"/"}>Alma Librerías</NavLink>
-                    </Navbar.Brand>
-                }   
+                <Link to="/cart" className="cantidadEnCarrito">
+                    <CartWidget/>
+                </Link>
+                <Navbar.Brand>
+                    <NavLink to={"/"} className="almaLibrerias">Alma Librerías</NavLink>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                 <Nav
@@ -49,7 +39,7 @@ const NavBar = () => {
                         </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
-                <Form className="d-flex">
+{/*                 <Form className="d-flex">
                     <Form.Control
                     type="search"
                     placeholder="Buscar libro..."
@@ -57,7 +47,11 @@ const NavBar = () => {
                     aria-label="Search"
                     />
                     <Button variant="light">Buscar</Button>
-                </Form>
+                </Form> */}
+                <Link to="/user" className="logIn">
+                    <span className="logIn">Ingresar</span>
+                    <UserWidget/>
+                </Link>
                 </Navbar.Collapse>
             </Container>
             </Navbar>

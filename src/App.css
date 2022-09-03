@@ -52,11 +52,6 @@ background-size: 80px 80px;
 background-repeat: repeat;
 }
 
-a a{
-  text-decoration: none;
-  color: white
-}
-
 .spinner{
   height: 100vh;
 }

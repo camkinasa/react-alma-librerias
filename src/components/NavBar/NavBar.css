@@ -1,3 +1,8 @@
+.almaLibrerias{
+    text-decoration: none;
+    color: white;
+}
+
 .cantidadEnCarrito{
     text-decoration: none;
 }
@@ -23,4 +28,9 @@
     background-image: radial-gradient(#f74579 0.2px, #c5c6c8,  0.2px);
     background-size: 4px 4px;
     color: white;
+}
+
+.logIn{
+    color:white;
+    text-decoration: none;
 }

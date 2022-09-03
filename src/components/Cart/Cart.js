@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { collection, doc, setDoc, serverTimestamp, updateDoc, increment } from "firebase/firestore";
 import { DB } from "../../Libros/APIfirebase";
-import { Col, Container, Row } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { Col, Container, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 
@@ -13,6 +12,7 @@ const Cart = () =>{
       const booksForDB = compra.cart.map(book => ({
         id: book.id,
         title: book.titulo,
+        quantity: book.quantity,
         price: book.precio
       }));
   
