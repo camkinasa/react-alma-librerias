@@ -7,6 +7,8 @@
 .redesFooter{
     color: white;
     text-decoration: none;
+    background-color: transparent;
+    border: none;
 }
 
 .footerContainer{
@@ -15,3 +17,4 @@
     background-size: 4px 4px;
     color: white;
 }
+

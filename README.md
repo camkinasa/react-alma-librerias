@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Librerías
+
+Se utilizó react-bootstrap para los estilos, iconos y layouts. Sin embargo, se realizaron algunos archivos CSS para mayor personalización.
+Se utilizó sweetalert para generar alertas que otorguen una mejor experiencia de usuario.
+
 ## Available Scripts
 
 In the project directory, you can run:

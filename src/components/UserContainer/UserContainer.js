@@ -1,8 +1,8 @@
-import User from "../User/User"
+import UserForm from "../UserForm/UserForm"
 
 const UserContainer = () => {
   return (
-    <User/>
+    <UserForm/>
   )
 }
 export default UserContainer

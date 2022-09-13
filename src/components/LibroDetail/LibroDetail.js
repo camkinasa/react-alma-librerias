@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 const LibroDetail = (libro) => {

@@ -5,34 +5,19 @@ export const CartContext = createContext();
 export default function CartContextProvider({ children }){
   const [cart, setCart] = useState([]);
 
-  const multiplicar = (num1, num2) => {
-    return num1 * num2
-  }
-
-
   const sumarTotal = (cart) => {
-    const valores = []
-    cart.forEach((libro) => {
-      const op = multiplicar(libro.quantity, libro.precio)
-      valores.push(op)
-    })
-    const total = valores.reduce((valorAnterior, valorActual) => {
-      return valorAnterior + valorActual
-    }, 0)
+    let total = 0
+    cart.forEach(book => total += book.precio * book.quantity)
     return total
   }
 
+  //Para la cantidad total en el CartWidget
   const cantidadTotalEnCarrito = (cart) => {
-    const valores = []
-    cart.forEach((libro) => {
-      const cantidad = libro.quantity
-      valores.push(cantidad)
+    let cantidad = 0
+    cart.forEach((book) =>{
+      cantidad += book.quantity
     })
-    const cantidadTotal = valores.reduce((valorAnterior, valorActual) =>{
-      return valorAnterior + valorActual
-    }, 0)
-    return cantidadTotal
-
+    return cantidad
   }
 
   const addBookToCart = (book) => {

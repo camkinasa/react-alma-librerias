@@ -11,8 +11,6 @@ const LibroDetailContainer = () => {
   const [loading, setLoading] = useState(true)
   const { idLibro } = useParams();
 
-  const sinResultados = <div>No hay resultados que coincidan con su búsqueda</div>
-
   useEffect(() => {        
     async function getBookByIdDesdeFirebase(idLibro){
       const bookByIdDesdeFirebase = await getBookById(idLibro)
